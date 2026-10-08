@@ -12,13 +12,13 @@
 <meta property="og:locale" content="es_ES">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Neuton:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap">
 <style>
 /* Layout: una columna tranquila; la mesa de juego arriba con la tarjeta a tamaño fijo, el kit después como sección de referencia */
 :root{
   --bg:#F6F7F3; --surface:#FFFFFF; --tint:#F3F7EA; --fg:#18211B; --muted:#56615A; --line:#DFE3DA;
   --heading:#003310; --action:#085420; --on-action:#FFFFFF; --mark:#C7EF4E; --on-mark:#003310; --focus:#085420;
-  --display:'Neuton', 'Charter', Georgia, serif;
+  --display:'Open Sans', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
   --body:'Open Sans', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
@@ -33,7 +33,7 @@ body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:1rem
 .wrap{max-width:44rem;margin:0 auto;padding-inline:1.25rem;padding-block:2.25rem 3rem;display:flex;flex-direction:column;gap:2.5rem}
 .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0}
 .eyebrow a{color:inherit}
-h1{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3rem);line-height:1.05;color:var(--heading);margin:.3rem 0 .6rem;text-wrap:balance}
+h1{font-family:var(--display);font-weight:700;letter-spacing:-.015em;font-size:clamp(2.2rem,6vw,3rem);line-height:1.05;color:var(--heading);margin:.3rem 0 .6rem;text-wrap:balance}
 .lede{margin:0;color:var(--muted);max-width:58ch}
 section{display:flex;flex-direction:column;gap:1rem}
 
@@ -58,16 +58,16 @@ section{display:flex;flex-direction:column;gap:1rem}
 .face-top{display:flex;justify-content:space-between;align-items:center;gap:1rem}
 .badge{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--on-mark);background:var(--mark);padding:.2rem .7rem;border-radius:999px}
 .num{font-family:var(--display);font-size:1.05rem;color:var(--muted);font-variant-numeric:tabular-nums}
-.situation{font-family:var(--display);font-weight:400;font-size:clamp(1.65rem,4.4vw,2.3rem);line-height:1.15;margin:0;color:var(--heading);text-wrap:balance;flex:1}
+.situation{font-family:var(--display);font-weight:600;letter-spacing:-.01em;font-size:clamp(1.65rem,4.4vw,2.3rem);line-height:1.15;margin:0;color:var(--heading);text-wrap:balance;flex:1}
 .face :focus{outline:none}
 .face :focus-visible{outline:3px solid var(--focus);outline-offset:4px;border-radius:4px}
 .questions{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.25rem;font-size:.95rem;color:var(--muted)}
 .questions b{color:var(--action);font-variant-numeric:tabular-nums;margin-right:.4rem}
 .back h4{margin:0;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .back p{margin:.2rem 0 0;max-width:60ch}
-.back-title{font-family:var(--display);font-weight:400;font-size:1.5rem;color:var(--heading);margin:0}
+.back-title{font-family:var(--display);font-weight:700;letter-spacing:-.015em;font-size:1.5rem;color:var(--heading);margin:0}
 .done{position:absolute;inset:0;border-radius:1.1rem;border:1px solid var(--line);background:var(--surface);padding:2rem;display:flex;flex-direction:column;justify-content:center;gap:1rem}
-.done h3{font-family:var(--display);font-weight:400;font-size:2rem;margin:0;color:var(--heading)}
+.done h3{font-family:var(--display);font-weight:700;letter-spacing:-.015em;font-size:2rem;margin:0;color:var(--heading)}
 .done p{margin:0;color:var(--muted);max-width:52ch}
 
 .controls{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.75rem}
@@ -97,7 +97,7 @@ summary{font-weight:600;color:var(--action);cursor:pointer;padding:.2rem 0;font-
 
 /* Kit */
 .kit{border-top:1px solid var(--line);padding-top:2.25rem}
-h2{font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,4vw,2rem);line-height:1.1;color:var(--heading);margin:0;text-wrap:balance}
+h2{font-family:var(--display);font-weight:700;letter-spacing:-.015em;font-size:clamp(1.6rem,4vw,2rem);line-height:1.1;color:var(--heading);margin:0;text-wrap:balance}
 h2:focus{outline:none}
 .kit .lede{font-size:.98rem}
 .pieces{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:1rem;background:var(--surface)}
