@@ -41,9 +41,9 @@ section{display:flex;flex-direction:column;gap:1rem}
 .status{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
 .status p{margin:0;font-variant-numeric:tabular-nums}
 .dots{display:flex;gap:.35rem;list-style:none;margin:0;padding:0}
-.dots li{width:.6rem;height:.6rem;border-radius:50%;background:var(--line)}
-.dots li.done{background:var(--muted)}
-.dots li.now{background:var(--action);box-shadow:0 0 0 3px var(--mark)}
+.dots li{width:.65rem;height:.65rem;border-radius:50%;border:2px solid var(--muted);background:transparent}
+.dots li.past{background:var(--muted)}
+.dots li.now{background:var(--action);border-color:var(--action);box-shadow:0 0 0 3px var(--mark)}
 
 .stage{height:24rem;perspective:1600px}
 @media (max-width:30rem){.stage{height:31rem}}
@@ -70,6 +70,7 @@ section{display:flex;flex-direction:column;gap:1rem}
 .done h3{font-family:var(--display);font-weight:700;letter-spacing:-.015em;font-size:2rem;margin:0;color:var(--heading)}
 .done p{margin:0;color:var(--muted);max-width:52ch}
 
+.controls.off{visibility:hidden}
 .controls{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.75rem}
 .actions{display:flex;flex-wrap:wrap;gap:.6rem}
 .timer{display:flex;align-items:center;gap:.6rem}
@@ -255,7 +256,7 @@ let state = {deck:[], current:0, seen:[], flipped:false};
 const DURATION = 120; let left = DURATION, tick = null;
 
 function shuffle(){ const a=CARDS.map((_,i)=>i); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]} return a; }
-function renderDots(){ $('dots').innerHTML = CARDS.map((_,i)=>`<li class="${i===state.current?'now':state.seen.includes(i)?'done':''}"></li>`).join(''); }
+function renderDots(){ $('dots').innerHTML = CARDS.map((_,i)=>`<li class="${i===state.current?'now':state.seen.includes(i)?'past':''}"></li>`).join(''); }
 function renderList(){ $('all').innerHTML = CARDS.map((c,i)=>`<li><button type="button" data-i="${i}"><span class="n">${pad(i+1)}</span><span>${c.s}</span>${state.seen.includes(i)?'<span class="seen">Vista</span>':''}</button></li>`).join(''); }
 
 function setFlipped(on, opts={}){
@@ -270,7 +271,7 @@ function show(i, opts={}){
   state.current = i;
   if(!state.seen.includes(i)) state.seen.push(i);
   const c = CARDS[i];
-  $('flip').hidden = false; $('done').hidden = true; $('controls').hidden = false;
+  $('flip').hidden = false; $('done').hidden = true; $('controls').classList.remove('off');
   const flip=$('flip'); const prev=flip.style.transition; flip.style.transition='none';
   setFlipped(false);
   void flip.offsetWidth; flip.style.transition=prev;
@@ -291,7 +292,7 @@ function draw(){
 }
 function finish(){
   resetTimer();
-  $('flip').hidden = true; $('done').hidden = false; $('controls').hidden = true;
+  $('flip').hidden = true; $('done').hidden = false; $('controls').classList.add('off');
   $('progress').textContent = `Has visto ${CARDS.length} de ${CARDS.length} tarjetas`;
   state.current = -1; renderDots(); renderList();
   $('done-title').focus({preventScroll:true});
